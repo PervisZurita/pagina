@@ -1,0 +1,835 @@
+
+/* =========================================================
+   VARIABLES GENERALES
+========================================================= */
+
+:root {
+    --primary: #173b63;
+    --primary-dark: #0f2945;
+    --secondary: #2d6a9f;
+    --accent: #c89b3c;
+
+    --text: #263445;
+    --text-light: #667085;
+
+    --background: #f6f8fb;
+    --white: #ffffff;
+    --border: #e5e9ef;
+
+    --shadow-sm: 0 6px 18px rgba(15, 41, 69, 0.08);
+    --shadow-md: 0 15px 35px rgba(15, 41, 69, 0.12);
+
+    --radius: 18px;
+}
+
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+.about-section,
+.content-section {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.about-section *,
+.content-section * {
+    box-sizing: border-box;
+}
+
+.about-section p,
+.content-section p {
+    line-height: 1.8;
+}
+
+.about-section h2,
+.content-section h2,
+.content-section h3 {
+    margin-top: 0;
+}
+
+
+/* =========================================================
+   SECCIÓN SOBRE NOSOTROS
+========================================================= */
+
+.about-section {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.8fr);
+
+    gap: 70px;
+
+    padding: 90px 7%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f9fc 0%,
+            #eef3f8 100%
+        );
+
+    overflow: hidden;
+}
+
+
+/* Decoración */
+
+.about-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -150px;
+    top: -150px;
+
+    border-radius: 50%;
+
+    background: rgba(45, 106, 159, 0.08);
+}
+
+.about-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    left: -100px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(200, 155, 60, 0.08);
+}
+
+
+/* =========================================================
+   CONTENIDO SOBRE NOSOTROS
+========================================================= */
+
+.about-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 850px;
+}
+
+
+/* Etiqueta */
+
+.section-label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+    color: var(--accent);
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* Línea pequeña */
+
+.section-label::before {
+    content: "";
+
+    width: 30px;
+    height: 3px;
+
+    border-radius: 10px;
+
+    background: var(--accent);
+}
+
+
+/* Título principal */
+
+.about-content h2 {
+    max-width: 800px;
+
+    margin-bottom: 25px;
+
+    color: var(--primary);
+
+    font-size: clamp(2.2rem, 4vw, 4rem);
+
+    font-weight: 800;
+
+    line-height: 1.12;
+
+    letter-spacing: -1.5px;
+}
+
+
+/* Párrafos */
+
+.about-content p {
+    max-width: 780px;
+
+    margin-bottom: 18px;
+
+    color: var(--text-light);
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   BOTÓN
+========================================================= */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 18px;
+
+    padding: 15px 24px;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: var(--white);
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.button i {
+    transition: transform 0.25s ease;
+}
+
+.button:hover {
+    background: var(--primary-dark);
+
+    color: var(--white);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(23, 59, 99, 0.25);
+}
+
+.button:hover i {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   ESTADÍSTICAS
+========================================================= */
+
+.about-stats {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    align-content: center;
+}
+
+
+/* Tarjeta estadística */
+
+.stat {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-height: 130px;
+
+    padding: 25px 30px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-left: 5px solid var(--accent);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateX(6px);
+
+    box-shadow: var(--shadow-md);
+}
+
+.stat strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--primary);
+
+    font-size: 2rem;
+
+    font-weight: 800;
+}
+
+.stat span {
+    color: var(--text-light);
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SECCIONES DE CONTENIDO
+========================================================= */
+
+.content-section {
+    padding: 100px 7%;
+
+    background: var(--white);
+}
+
+.content-section:nth-of-type(even) {
+    background: var(--background);
+}
+
+
+/* =========================================================
+   ENCABEZADO DE SECCIÓN
+========================================================= */
+
+.section-header {
+    max-width: 900px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.section-header .section-label {
+    justify-content: center;
+}
+
+.section-header h2 {
+    margin-bottom: 20px;
+
+    color: var(--primary);
+
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+}
+
+.section-header p {
+    max-width: 780px;
+
+    margin: 0 auto;
+
+    color: var(--text-light);
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================================================
+   TARJETAS DE MISIÓN Y VISIÓN
+========================================================= */
+
+.services-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+}
+
+
+/* Tarjeta */
+
+.service-card {
+    position: relative;
+
+    padding: 38px 32px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-sm);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.service-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: var(--secondary);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(45, 106, 159, 0.25);
+
+    box-shadow: var(--shadow-md);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* Icono */
+
+.service-icon {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 62px;
+    height: 62px;
+
+    margin-bottom: 24px;
+
+    border-radius: 15px;
+
+    background: rgba(45, 106, 159, 0.1);
+
+    color: var(--secondary);
+
+    font-size: 1.5rem;
+}
+
+
+/* Título */
+
+.service-card h3 {
+    margin-bottom: 13px;
+
+    color: var(--primary);
+
+    font-size: 1.3rem;
+
+    font-weight: 750;
+}
+
+
+/* Texto */
+
+.service-card p {
+    margin: 0;
+
+    color: var(--text-light);
+
+    font-size: 0.97rem;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   VISIÓN
+========================================================= */
+
+.vision-section {
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f7fa 0%,
+            #ffffff 100%
+        );
+}
+
+.vision-section .service-card {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+
+/* =========================================================
+   BLOG / RECURSOS
+========================================================= */
+
+.blog-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 28px;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+}
+
+
+/* Tarjeta blog */
+
+.blog-card {
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* Imagen / icono */
+
+.blog-image {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 190px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color: var(--white);
+
+    font-size: 3rem;
+}
+
+
+/* Contenido */
+
+.blog-content {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 28px;
+}
+
+
+/* Categoría */
+
+.blog-content > span {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--accent);
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* Título */
+
+.blog-content h3 {
+    margin-bottom: 14px;
+
+    color: var(--primary);
+
+    font-size: 1.25rem;
+
+    line-height: 1.4;
+}
+
+
+/* Descripción */
+
+.blog-content p {
+    margin-bottom: 22px;
+
+    color: var(--text-light);
+
+    font-size: 0.94rem;
+
+    line-height: 1.7;
+}
+
+
+/* Link */
+
+.blog-content a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: auto;
+
+    color: var(--secondary);
+
+    font-size: 0.92rem;
+
+    font-weight: 750;
+
+    text-decoration: none;
+
+    transition: gap 0.25s ease;
+}
+
+.blog-content a:hover {
+    gap: 14px;
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE ENTRADA
+========================================================= */
+
+.about-content,
+.about-stats,
+.service-card,
+.blog-card {
+    animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .about-section {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding: 75px 6%;
+    }
+
+    .about-content {
+        max-width: 900px;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat {
+        min-height: 120px;
+    }
+
+    .services-grid,
+    .blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MÓVIL
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .about-section {
+        padding: 60px 5%;
+
+        gap: 35px;
+    }
+
+    .about-content h2 {
+        font-size: 2.25rem;
+
+        letter-spacing: -0.8px;
+    }
+
+    .about-content p {
+        font-size: 0.98rem;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        min-height: 105px;
+    }
+
+    .content-section {
+        padding: 70px 5%;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header p {
+        font-size: 0.98rem;
+    }
+
+    .services-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 30px 25px;
+    }
+
+    .blog-content {
+        padding: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   MÓVILES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .about-section {
+        padding: 50px 20px;
+    }
+
+    .content-section {
+        padding: 60px 20px;
+    }
+
+    .about-content h2 {
+        font-size: 1.9rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .button {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .service-card {
+        padding: 25px 22px;
+    }
+
+}

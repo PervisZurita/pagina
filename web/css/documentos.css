@@ -1,0 +1,252 @@
+
+.documentos-pagina {
+    min-height: 70vh;
+    padding-bottom: 60px;
+    background: #f8fafc;
+}
+
+.documentos-hero {
+    padding: 65px 20px;
+    background: linear-gradient(135deg, #0f172a, #075985);
+    color: #fff;
+    text-align: center;
+}
+
+.documentos-hero-icon {
+    margin-bottom: 15px;
+    font-size: 42px;
+}
+
+.documentos-hero > span {
+    color: #bae6fd;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.documentos-hero h1 {
+    margin: 12px 0;
+    font-size: clamp(32px, 5vw, 46px);
+    font-weight: 800;
+}
+
+.documentos-hero p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #e2e8f0;
+    line-height: 1.8;
+}
+
+.documentos-contenedor {
+    width: min(1050px, 92%);
+    margin: 40px auto;
+}
+
+.documentos-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.documentos-encabezado h2 {
+    margin: 0 0 8px;
+    color: #172033;
+    font-size: 26px;
+}
+
+.documentos-encabezado p {
+    margin: 0;
+    color: #64748b;
+}
+
+.documentos-lista {
+    display: grid;
+    gap: 18px;
+}
+
+.documento-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+}
+
+.documento-icono {
+    display: flex;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #fee2e2;
+    color: #b91c1c;
+    font-size: 25px;
+}
+
+.documento-informacion {
+    flex: 1;
+    min-width: 0;
+}
+
+.documento-informacion h3 {
+    margin: 0 0 10px;
+    color: #172033;
+    font-size: 20px;
+}
+
+.documento-informacion p {
+    color: #64748b;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.documento-informacion small {
+    color: #64748b;
+}
+
+.documento-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.btn-documento-agregar,
+.btn-documento-ver,
+.btn-documento-descargar,
+.btn-documento-editar,
+.btn-documento-eliminar,
+.btn-documento-guardar,
+.btn-documento-cancelar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-documento-agregar,
+.btn-documento-ver,
+.btn-documento-guardar {
+    background: #0284c7;
+    color: #fff;
+}
+
+.btn-documento-agregar:hover,
+.btn-documento-ver:hover,
+.btn-documento-guardar:hover {
+    background: #0369a1;
+    color: #fff;
+}
+
+.btn-documento-descargar {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.btn-documento-editar {
+    background: #e0f2fe;
+    color: #075985;
+}
+
+.btn-documento-eliminar {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.btn-documento-cancelar {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.documentos-vacios {
+    padding: 55px 20px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 14px;
+    background: #fff;
+    color: #64748b;
+    text-align: center;
+}
+
+.documentos-vacios > i {
+    font-size: 40px;
+}
+
+.documentos-vacios h3 {
+    color: #172033;
+}
+
+.documento-administracion {
+    width: min(850px, 92%);
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.documento-administracion h1 {
+    color: #172033;
+    font-size: 27px;
+}
+
+.documento-administracion > p {
+    margin-bottom: 25px;
+    color: #64748b;
+}
+
+.documento-form .form-group {
+    margin-bottom: 22px;
+}
+
+.documento-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.documento-form input:not([type="file"]),
+.documento-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+.documento-form input[type="file"] {
+    display: block;
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    .documento-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .documento-acciones > a {
+        flex: 1 1 40%;
+    }
+
+    .documentos-encabezado {
+        align-items: flex-start;
+    }
+
+    .documento-administracion {
+        padding: 20px;
+    }
+}

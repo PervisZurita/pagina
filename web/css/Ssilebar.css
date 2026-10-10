@@ -1,0 +1,716 @@
+:root {
+    --sidebar-width: 270px;
+    --sidebar-collapsed-width: 82px;
+    --sidebar-top: 78px;
+
+    --sidebar-bg: #ffffff;
+    --sidebar-border: #e5e7eb;
+
+    --sidebar-text: #374151;
+    --sidebar-muted: #8a94a6;
+
+    --sidebar-hover: #f3f6fa;
+    --sidebar-active: #eef4ff;
+
+    --sidebar-primary: #2563eb;
+
+    --sidebar-shadow:
+        8px 0 30px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.app-sidebar {
+
+    position: fixed;
+
+    top: var(--sidebar-top);
+    left: 0;
+    bottom: 0;
+
+    width: var(--sidebar-width);
+
+    background: var(--sidebar-bg);
+
+    border-right: 1px solid var(--sidebar-border);
+
+    box-shadow: var(--sidebar-shadow);
+
+    z-index: 900;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        width .3s ease,
+        transform .3s ease;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR CONTRAÍDO
+========================================================= */
+
+body.sidebar-collapsed .app-sidebar {
+    width: var(--sidebar-collapsed-width);
+}
+
+
+/* =========================================================
+   HEADER DEL SIDEBAR
+========================================================= */
+
+.sidebar-header {
+
+    min-height: 78px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--sidebar-border);
+
+    flex-shrink: 0;
+}
+
+
+.sidebar-title {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 0;
+}
+
+
+.sidebar-title-icon {
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eef4ff;
+
+    color: var(--sidebar-primary);
+
+    font-size: 18px;
+}
+
+
+.sidebar-title-text {
+
+    display: flex;
+    flex-direction: column;
+
+    white-space: nowrap;
+
+    transition: opacity .2s ease;
+}
+
+
+.sidebar-title-text strong {
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+
+    color: #172033;
+}
+
+
+.sidebar-title-text small {
+
+    margin-top: 2px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    color: var(--sidebar-muted);
+}
+
+
+/* =========================================================
+   BOTÓN CONTRAER
+========================================================= */
+
+.sidebar-collapse {
+
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #8993a5;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.sidebar-collapse:hover {
+
+    background: var(--sidebar-hover);
+
+    color: var(--sidebar-primary);
+}
+
+
+.sidebar-collapse i {
+
+    transition: transform .3s ease;
+}
+
+
+body.sidebar-collapsed .sidebar-collapse i {
+
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+.sidebar-navigation {
+
+    flex: 1;
+
+    padding: 18px 12px;
+
+    overflow-y: auto;
+}
+
+
+/* Scroll */
+
+.sidebar-navigation::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+.sidebar-navigation::-webkit-scrollbar-thumb {
+
+    background: #d9dee7;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   TÍTULOS DE SECCIÓN
+========================================================= */
+
+.sidebar-section {
+
+    padding: 8px 12px 9px;
+}
+
+
+.sidebar-section-title {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    color: var(--sidebar-muted);
+
+    white-space: nowrap;
+}
+
+
+.sidebar-section-tools {
+
+    margin-top: 14px;
+}
+
+
+.sidebar-section-help {
+
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   ENLACES
+========================================================= */
+
+.sidebar-link {
+
+    position: relative;
+
+    min-height: 48px;
+
+    padding: 0 12px;
+
+    margin-bottom: 4px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    color: var(--sidebar-text);
+
+    text-decoration: none;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.sidebar-link:hover {
+
+    background: var(--sidebar-hover);
+
+    color: var(--sidebar-primary);
+
+    transform: translateX(2px);
+}
+
+
+.sidebar-link.active {
+
+    background: var(--sidebar-active);
+
+    color: var(--sidebar-primary);
+
+    font-weight: 700;
+}
+
+
+.sidebar-link.active::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 9px;
+    bottom: 9px;
+
+    width: 3px;
+
+    border-radius: 0 4px 4px 0;
+
+    background: var(--sidebar-primary);
+}
+
+
+/* =========================================================
+   ICONOS
+========================================================= */
+
+.sidebar-link-icon {
+
+    width: 22px;
+
+    flex: 0 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+
+    color: #697589;
+}
+
+
+.sidebar-link:hover .sidebar-link-icon,
+.sidebar-link.active .sidebar-link-icon {
+
+    color: var(--sidebar-primary);
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.sidebar-link-text {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+
+/* =========================================================
+   BADGE IA
+========================================================= */
+
+.sidebar-badge {
+
+    margin-left: auto;
+
+    padding: 3px 7px;
+
+    border-radius: 6px;
+
+    background: #eef4ff;
+
+    color: var(--sidebar-primary);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.sidebar-footer {
+
+    margin: 12px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background: #f7f9fc;
+
+    border: 1px solid #edf0f5;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+.sidebar-footer-icon {
+
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #eaf2ff;
+
+    color: var(--sidebar-primary);
+
+    font-size: 14px;
+}
+
+
+.sidebar-footer-text {
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+.sidebar-footer-text strong {
+
+    font-size: 10px;
+
+    color: #344054;
+
+    white-space: nowrap;
+}
+
+
+.sidebar-footer-text span {
+
+    margin-top: 2px;
+
+    font-size: 9px;
+
+    color: #98a2b3;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SIDEBAR CONTRAÍDO
+========================================================= */
+
+body.sidebar-collapsed .sidebar-title-text,
+body.sidebar-collapsed .sidebar-link-text,
+body.sidebar-collapsed .sidebar-badge,
+body.sidebar-collapsed .sidebar-footer-text,
+body.sidebar-collapsed .sidebar-section-title {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    width: 0;
+}
+
+
+body.sidebar-collapsed .sidebar-header {
+
+    justify-content: center;
+
+    padding: 0 10px;
+}
+
+
+body.sidebar-collapsed .sidebar-title {
+
+    gap: 0;
+}
+
+
+body.sidebar-collapsed .sidebar-collapse {
+
+    position: absolute;
+
+    right: 5px;
+}
+
+
+body.sidebar-collapsed .sidebar-link {
+
+    justify-content: center;
+
+    padding: 0;
+
+    gap: 0;
+}
+
+
+body.sidebar-collapsed .sidebar-link:hover {
+
+    transform: none;
+}
+
+
+body.sidebar-collapsed .sidebar-footer {
+
+    justify-content: center;
+
+    padding: 10px;
+
+    margin: 12px 10px;
+}
+
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+========================================================= */
+
+/*
+   IMPORTANTE:
+   Esto NO modifica el navbar.
+
+   Solo desplaza el contenido principal para dejar
+   espacio al sidebar.
+*/
+
+.site-main,
+main {
+
+    margin-left: var(--sidebar-width);
+
+    transition: margin-left .3s ease;
+}
+
+
+body.sidebar-collapsed .site-main,
+body.sidebar-collapsed main {
+
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+
+/* =========================================================
+   BOTÓN MÓVIL
+========================================================= */
+
+.sidebar-mobile-toggle {
+
+    display: none;
+
+    position: fixed;
+
+    left: 15px;
+
+    bottom: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: var(--sidebar-primary);
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(37, 99, 235, .3);
+
+    z-index: 1200;
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.sidebar-overlay {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15, 23, 42, .45);
+
+    z-index: 850;
+
+    backdrop-filter: blur(2px);
+}
+
+
+/* =========================================================
+   TABLET / MÓVIL
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .app-sidebar {
+
+        transform: translateX(-100%);
+
+        width: var(--sidebar-width);
+
+        z-index: 1100;
+    }
+
+
+    body.sidebar-mobile-open .app-sidebar {
+
+        transform: translateX(0);
+    }
+
+
+    body.sidebar-mobile-open .sidebar-overlay {
+
+        display: block;
+    }
+
+
+    .sidebar-mobile-toggle {
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    body.sidebar-collapsed .app-sidebar {
+
+        width: var(--sidebar-width);
+
+        transform: translateX(-100%);
+    }
+
+
+    body.sidebar-mobile-open.sidebar-collapsed .app-sidebar {
+
+        transform: translateX(0);
+    }
+
+
+    body.sidebar-collapsed .site-main,
+    body.sidebar-collapsed main,
+    .site-main,
+    main {
+
+        margin-left: 0;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .app-sidebar {
+
+        width: min(290px, 88vw);
+    }
+
+
+    .sidebar-mobile-toggle {
+
+        width: 45px;
+        height: 45px;
+
+        left: 12px;
+        bottom: 15px;
+    }
+}
